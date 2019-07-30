@@ -1,0 +1,18 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds illumina-utils to your environment variables,"
+}
+
+module-whatis "adds illumina-utils to your environment variables."
+
+set              version           1.5.0
+set              root              /cm/shared/apps/illumina-utils/$version
+
+prepend-path     PATH              $root/bin
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     PYTHONPATH        $root/lib/python2.7/site-packages
+

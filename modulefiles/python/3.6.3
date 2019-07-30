@@ -1,0 +1,18 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds Python 3.6.3 to your environment variables,"
+}
+
+module-whatis "adds Python 3.6.3 to your environment variables."
+
+set              version           3.6.3
+set              root              /cm/shared/apps/python/$version
+
+prepend-path      PATH              $root/bin
+prepend-path      MANPATH           $root/share/man
+prepend-path      LD_LIBRARY_PATH   $root/lib
+

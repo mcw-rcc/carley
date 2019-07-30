@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds PyMOL to your environment variables,"
+}
+
+module-whatis "adds PyMOL to your environment variables."
+
+set              version           1.8.2.3
+set              root              /cm/shared/apps/pymol/$version
+
+prepend-path      PATH              $root
+prepend-path      PYTHONPATH        $root/ext/lib/python2.7/site-packages

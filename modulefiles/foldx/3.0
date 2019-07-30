@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds FoldX to your environment variables,"
+}
+
+module-whatis "adds FoldX to your environment variables."
+
+set              version           3.0
+set              root              /cm/shared/apps/foldx/$version
+
+prepend-path      PATH              $root
+

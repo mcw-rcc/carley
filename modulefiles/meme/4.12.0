@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds MEME to your environment variables,"
+}
+
+module-whatis "adds MEME to your environment variables."
+
+set              version           4.12.0
+set              root              /cm/shared/apps/meme/$version
+
+prepend-path      PATH              $root/bin
+

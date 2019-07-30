@@ -1,0 +1,15 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds rdgehdr to your environment variables,"
+}
+
+module-whatis "adds rdgehdr to your environment variables."
+
+set              version           1290M
+set              root              /cm/shared/apps/rdgehdr/$version
+
+prepend-path     PATH              $root

@@ -1,0 +1,17 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds BEDTools-2 to your environment variables,"
+}
+
+module-whatis "adds BEDTools-2 to your environment variables."
+
+set              version           2.25.0
+set              root              /cm/shared/apps/bedtools2/$version
+
+prepend-path      PATH              $root/bin
+prepend-path      PATH              /cm/local/apps/gcc/5.2.0
+prepend-path      LD_LIBRARY_PATH   /cm/local/apps/gcc/5.2.0/lib:/cm/local/apps/gcc/5.2.0/lib64

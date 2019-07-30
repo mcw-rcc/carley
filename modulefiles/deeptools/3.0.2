@@ -1,0 +1,17 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds deepTools to your environment variables,"
+}
+
+module-whatis "adds deepTools to your environment variables."
+
+set              version           3.0.2
+set              root              /cm/shared/apps/deeptools/$version
+
+prepend-path	 PATH		   $root/bin
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     PYTHONPATH        $root/lib/python2.7/site-package

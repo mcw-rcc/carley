@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds ea-utils to your environment variables,"
+}
+
+module-whatis "adds ea-utils to your environment variables."
+
+set              version           1.04
+set              root              /cm/shared/apps/ea-utils/$version
+
+prepend-path      PATH              $root/bin
+

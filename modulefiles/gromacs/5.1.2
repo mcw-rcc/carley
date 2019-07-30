@@ -1,0 +1,31 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds GROMACS 5.1.2 to your environment variables,"
+}
+
+module-whatis "adds GROMACS 5.1.2 to your environment variables."
+
+set              version           5.1.2
+set              root              /cm/shared/apps/gromacs/$version
+
+prepend-path      PATH              $root/bin
+prepend-path      MANPATH           $root/share/man
+prepend-path      LD_LIBRARY_PATH   $root/lib64
+prepend-path	  PKG_CONFIG_PATH   $root/lib64/pkgconfig
+
+prepend-path      PATH              /cm/local/apps/gcc/5.2.0/bin
+prepend-path      LD_LIBRARY_PATH   /cm/local/apps/gcc/5.2.0/lib:/cm/local/apps/gcc/5.2.0/lib64
+
+prepend-path     PATH              /usr/mpi/gcc/openmpi-1.10.3a1/bin
+prepend-path     MANPATH           /usr/mpi/gcc/openmpi-1.10.3a1/share/man
+setenv           MPI_HOME          /usr/mpi/gcc/openmpi-1.10.3a1
+setenv           MPI_RUN           /usr/mpi/gcc/openmpi-1.10.3a1/bin/mpirun
+prepend-path     LD_RUN_PATH       /usr/mpi/gcc/openmpi-1.10.3a1/lib64
+prepend-path     LD_LIBRARY_PATH   /usr/mpi/gcc/openmpi-1.10.3a1/lib64
+prepend-path     LD_LIBRARY_PATH   /cm/local/modulefiles/openmpi/mlnx/gcc/64/1.10.3a1
+
+

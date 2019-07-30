@@ -1,0 +1,17 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds ANSYS to your environment variables,"
+}
+
+module-whatis "adds ANSYS to your environment variables."
+
+set              version           18.1
+set              root              /cm/shared/apps/ansys/$version
+
+setenv		 AWP_ROOT181	   /cm/shared/apps/ansys/18.1/v181
+prepend-path     PATH              $root/v181/icemcfd/linux64_amd/bin:$root/v181/fluent/bin:$root/v181/ansys/bin:$root/v181/Framework/bin/Linux64:$root/v181/CFD-Post/bin
+

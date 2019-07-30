@@ -1,0 +1,15 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds Subread to your environment variables,"
+}
+
+module-whatis "adds Subread to your environment variables."
+
+set              version           1.6.2
+set              root              /cm/shared/apps/subread/$version
+
+prepend-path     PATH              $root/bin

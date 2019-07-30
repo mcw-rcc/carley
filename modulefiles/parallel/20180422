@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds GNU Parallel to your environment variables,"
+}
+
+module-whatis "adds GNU Parallel to your environment variables."
+
+set              version           20180422
+set              root              /cm/shared/apps/parallel/$version
+prepend-path     PATH              $root/bin
+prepend-path     MANPATH           $root/share/man
+

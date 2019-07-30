@@ -1,0 +1,32 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds [module-info name] to your environment variables,"
+}
+
+module-whatis "adds [module-info name] to your environment variables."
+
+set              version           20141127
+set              root              /cm/shared/apps/snphylo/$version
+
+prepend-path      PATH              $root/bin
+
+if ![ is-loaded 'R/3.4.2' ] {
+  module load R/3.4.2
+}
+
+if ![ is-loaded 'python/2.7.11' ] {
+  module load python/2.7.11
+}
+
+if ![ is-loaded 'muscle/3.8.1551' ] {
+  module load muscle/3.8.1551
+}
+
+if ![ is-loaded 'phylip/3.697' ] {
+  module load phylip/3.697
+}
+

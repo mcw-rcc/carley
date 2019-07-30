@@ -1,0 +1,17 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds Connectome Workbench to your environment variables,"
+}
+
+module-whatis "adds Connectome Workbench to your environment variables."
+
+set              version           1.2.2
+set              root              /cm/shared/apps/workbench/$version
+
+prepend-path      PATH              $root/bin_rh_linux64
+prepend-path      LD_LIBRARY_PATH   $root/libs_rh_linux64
+

@@ -1,0 +1,22 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds NAMD2 to your environment variables,"
+}
+
+module-whatis "adds NAMD2 to your environment variables."
+
+set              version           2.11
+set              root              /cm/shared/apps/namd2/$version
+
+prepend-path      PATH              $root
+prepend-path     PATH              /usr/mpi/gcc/openmpi-1.10.3a1/bin
+prepend-path     MANPATH           /usr/mpi/gcc/openmpi-1.10.3a1/share/man
+setenv           MPI_HOME          /usr/mpi/gcc/openmpi-1.10.3a1/
+setenv           MPI_RUN           /usr/mpi/gcc/openmpi-1.10.3a1/bin/mpirun
+prepend-path     LD_RUN_PATH       /usr/mpi/gcc/openmpi-1.10.3a1/lib64
+prepend-path     LD_LIBRARY_PATH   /usr/mpi/gcc/openmpi-1.10.3a1/lib64
+prepend-path     LD_LIBRARY_PATH   /cm/local/modulefiles/openmpi/mlnx/gcc/64/1.10.3a1

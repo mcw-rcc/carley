@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds eXpress to your environment variables,"
+}
+
+module-whatis "adds eXpress to your environment variables."
+
+set              version           1.5.1
+set              root              /cm/shared/apps/express/$version
+
+prepend-path      PATH              $root
+

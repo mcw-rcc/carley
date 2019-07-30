@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds PDB2PQR to your environment variables,"
+}
+
+module-whatis "Adds PDB2PQR to your environment variables."
+
+set              version           2.1.1
+set              root              /cm/shared/apps/pdb2pqr/$version
+
+prepend-path      PATH              $root/bin
+

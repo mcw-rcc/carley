@@ -1,0 +1,15 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds TopHat to your environment variables,"
+}
+
+module-whatis "adds TopHat to your environment variables."
+
+set              version           1.4.1
+set              root              /cm/shared/apps/tophat/$version
+
+prepend-path      PATH              $root

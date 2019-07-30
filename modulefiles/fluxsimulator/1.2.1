@@ -1,0 +1,18 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds Flux Simulator to your environment variables,"
+}
+
+module-whatis "adds Flux Simulator to your environment variables."
+
+set              version           1.2.1
+set              root              /cm/shared/apps/fluxsimulator/$version
+
+prepend-path      PATH              $root/bin
+
+
+

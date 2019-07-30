@@ -1,0 +1,17 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds Singularity to your environment variables,"
+}
+
+module-whatis "adds Singularity to your environment variables."
+
+set              version           2.5.1
+set              root              /cm/shared/apps/singularity/$version
+
+prepend-path      PATH              $root/bin
+prepend-path      LD_LIBRARY_PATH   $root/lib
+

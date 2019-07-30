@@ -1,0 +1,15 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds MIPAV to your environment variables,"
+}
+
+module-whatis "adds MIPAV to your environment variables."
+
+set              version           7.3.0
+set              root              /cm/shared/apps/mipav/$version
+
+prepend-path      PATH              $root

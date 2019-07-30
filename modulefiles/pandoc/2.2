@@ -1,0 +1,17 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds Pandoc to your environment variables,"
+}
+
+module-whatis "adds Pandoc to your environment variables."
+
+set              version           2.2
+set              root              /cm/shared/apps/pandoc/$version
+
+prepend-path      PATH              $root/bin
+prepend-path      MANPATH           $root/share/man
+

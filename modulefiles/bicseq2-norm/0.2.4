@@ -1,0 +1,15 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds BICseq2-norm to your environment variables,"
+}
+
+module-whatis "adds BICseq2-norm to your environment variables."
+
+set              version           0.2.4
+set              root              /cm/shared/apps/bicseq2-norm/$version
+
+prepend-path      PATH              $root

@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds mne to your environment variables,"
+}
+
+module-whatis "adds mne to your environment variables."
+
+set              version           0.14.1
+set              root              /cm/shared/apps/mne/$version
+
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     PYTHONPATH        $root/lib/python2.7/site-packages

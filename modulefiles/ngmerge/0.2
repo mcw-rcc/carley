@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds NGmerge to your environment variables,"
+}
+
+module-whatis "Adds NGmerge to your environment variables."
+
+set              version           0.2
+set              root              /cm/shared/apps/ngmerge/$version
+
+prepend-path      PATH              $root
+

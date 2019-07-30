@@ -1,0 +1,15 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds IGV to your environment variables,"
+}
+
+module-whatis "adds IGV to your environment variables."
+
+set              version           2.3.88
+set              root              /cm/shared/apps/igv/$version
+
+prepend-path      PATH              $root

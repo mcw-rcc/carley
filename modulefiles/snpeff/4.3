@@ -1,0 +1,18 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds snpEff to your environment variables,"
+}
+
+module-whatis "adds snpEff to your environment variables."
+
+set              version           4.3
+set              root              /cm/shared/apps/snpeff/$version
+
+prepend-path      PATH             $root/scripts
+setenv            SNPEFF           $root/snpEff.jar
+setenv            SNPSIFT          $root/SnpSift.jar
+

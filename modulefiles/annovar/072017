@@ -1,0 +1,15 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds ANNOVAR to your environment variables,"
+}
+
+module-whatis "adds ANNOVAR to your environment variables."
+
+set              version           072017
+set              root              /cm/shared/apps/annovar/$version
+
+prepend-path     PATH              $root

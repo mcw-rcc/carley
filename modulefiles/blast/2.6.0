@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds Blast 2.6.0 to your environment variables,"
+}
+
+module-whatis "adds Blast 2.6.0 to your environment variables."
+
+set              version           2.6.0
+set              root              /cm/shared/apps/blast/$version
+
+prepend-path     PATH              $root/bin
+setenv           BLASTDB           /rcc/stor1/refdata/blast

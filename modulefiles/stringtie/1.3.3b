@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds Stringtie to your environment variables,"
+}
+
+module-whatis "adds Stringtie to your environment variables."
+
+set              version           1.3.3b
+set              root              /cm/shared/apps/stringtie/$version
+
+prepend-path      PATH              $root
+

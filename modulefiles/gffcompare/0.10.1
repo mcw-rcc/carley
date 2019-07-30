@@ -1,0 +1,15 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds gffcompare to your environment variables,"
+}
+
+module-whatis "adds gffcompare to your environment variables."
+
+set              version           0.10.1
+set              root              /cm/shared/apps/gffcompare/$version
+prepend-path      PATH              $root
+

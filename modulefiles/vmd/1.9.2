@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds VMD 1.9.2 to your environment variables,"
+}
+
+module-whatis "adds VMD 1.9.2 to your environment variables."
+
+set              version           1.9.2
+set              root              /cm/shared/apps/vmd/$version
+
+prepend-path      PATH              $root/bin
+prepend-path      LD_LIBRARY_PATH   $root/lib

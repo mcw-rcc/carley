@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds MIRA to your environment variables,"
+}
+
+module-whatis "Adds MIRA to your environment variables."
+
+set              version           4.0.2
+set              root              /cm/shared/apps/mira/$version
+
+prepend-path      PATH              $root/bin
+

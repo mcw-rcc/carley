@@ -1,0 +1,23 @@
+#!/usr/bin/perl
+
+use Env;
+use strict;
+use Sys::Hostname;
+use POSIX qw(strftime);
+
+#my $jobid = $ENV{'PBS_JOBID'};
+my $jobid = $ARGV[0];
+my $jobdatelong = strftime "%Y%m%d.%H.%M.%S", localtime;
+my $logyear = strftime "%Y", localtime;
+my $logmonth = strftime "%m", localtime;
+my $logday = strftime "%d", localtime;
+my $fullhost = hostname();
+
+# PCP End of job logging
+
+my $logdir = "/xdmod/supremm/pmlogger/$fullhost/$logyear/$logmonth/$logday";
+system("env PMLOGGER_EPILOG=yes pmlogger -U pcp -c /etc/pcp/pmlogger/pmlogger-supremm.config -s 1 -l /tmp/job-$jobid-end-$jobdatelong.log $logdir/job-$jobid-end-$jobdatelong &> /dev/null");
+
+unlink("/tmp/job-$jobid-end-$jobdatelong.log");
+
+exit(0);

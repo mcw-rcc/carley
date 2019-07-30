@@ -1,0 +1,27 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds BioR to your environment variables,"
+}
+
+module-whatis "adds BioR to your environment variables."
+
+set              version           4.1.2
+set              root              /cm/shared/apps/bior/$version
+
+prepend-path      PATH              $root/bin
+prepend-path      MANPATH           $root/share/man
+prepend-path      LD_LIBRARY_PATH   $root/lib
+setenv		  BIOR_LITE_HOME    $root
+
+if ![ is-loaded 'htslib/1.8' ] {
+  module load htslib/1.8
+}
+
+if ![ is-loaded 'perl/5.26.1' ] {
+  module load perl/5.26.1
+}
+

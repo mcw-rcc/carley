@@ -1,0 +1,17 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds HUMAnN2 to your environment variables,"
+}
+
+module-whatis "adds HUMAnN2 to your environment variables."
+
+set              version           0.10.0
+set              root              /cm/shared/apps/humann2/$version
+
+prepend-path      PATH              $root/bin
+prepend-path      LD_LIBRARY_PATH   $root/lib
+prepend-path	  PYTHONPATH	    $root/lib/python2.7/site-packages

@@ -1,0 +1,18 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds BCL 3.4.0 to your environment variables,"
+}
+
+module-whatis "adds BCL 3.4.0 to your environment variables."
+
+set              version            3.4.0
+set              root               /cm/shared/apps/bcl/$version
+
+prepend-path      PATH              $root
+prepend-path      LD_LIBRARY_PATH   $root
+set-alias	  bcl.exe	    "$root/bcl.exe"
+

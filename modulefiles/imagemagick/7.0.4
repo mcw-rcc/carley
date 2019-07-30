@@ -1,0 +1,18 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds ImageMagick to your environment variables,"
+}
+
+module-whatis "adds ImageMagick to your environment variables."
+
+set              version           7.0.4
+set              root              /cm/shared/apps/imagemagick/$version
+
+prepend-path      PATH              $root/bin
+prepend-path      MANPATH           $root/share/man
+prepend-path      LD_LIBRARY_PATH   $root/lib/
+

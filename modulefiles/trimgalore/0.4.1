@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds Trim Galore to your environment variables,"
+}
+
+module-whatis "adds Trim Galore to your environment variables."
+
+set              version           0.4.1
+set              root              /cm/shared/apps/trimgalore/$version
+
+prepend-path      PATH              $root
+

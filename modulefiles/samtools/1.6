@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds SAMtools to your environment variables,"
+}
+
+module-whatis "adds SAMtools to your environment variables."
+
+set              version           1.6
+set              root              /cm/shared/apps/samtools/$version
+
+prepend-path      PATH              $root/bin
+prepend-path      MANPATH           $root/share/man

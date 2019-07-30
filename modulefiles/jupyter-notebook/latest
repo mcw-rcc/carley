@@ -1,0 +1,17 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+  puts stderr "\tAdds [module-info name] to your environment.\n"
+}
+
+module-whatis "adds Jupyter-Notebook to your environment variables"
+
+set               img_root            /rcc/stor1/containers
+set-alias	  jupyter-notebook    "singularity exec ${img_root}/ubuntu_jupyter_latest.simg jupyter notebook --no-browser --port=\${port} --ip=\${node}"
+setenv		   SINGULARITYENV_TMPDIR \$TMPDIR
+
+if ![ is-loaded 'singularity' ] {
+  module load singularity
+}

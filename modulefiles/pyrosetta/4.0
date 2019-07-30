@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds PyRosetta to your environment variables,"
+}
+
+module-whatis "adds PyRosetta to your environment variables."
+
+set              version           4.0
+set              root              /cm/shared/apps/pyrosetta/$version
+
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     PYTHONPATH        $root/lib/python2.7/site-packages

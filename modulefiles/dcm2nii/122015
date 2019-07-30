@@ -1,0 +1,15 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds dcm2nii to your environment variables,"
+}
+
+module-whatis "adds dcm2nii to your environment variables."
+
+set              version           122015
+set              root              /cm/shared/apps/dcm2nii/$version
+
+prepend-path      PATH              $root

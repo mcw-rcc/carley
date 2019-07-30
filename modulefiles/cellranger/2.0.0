@@ -1,0 +1,20 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds Cell Ranger to your environment variables,"
+}
+
+module-whatis "adds Cell Ranger to your environment variables."
+
+set              version           2.0.0
+set              root              /cm/shared/apps/cellranger/$version
+
+prepend-path      PATH              $root
+
+if ![ is-loaded 'bcl2fastq2/2.20' ] {
+  module load bcl2fastq2/2.20
+}
+

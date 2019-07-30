@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds Rosetta 3.8 to your environment variables,"
+}
+
+module-whatis "adds Rosetta 3.8 to your environment variables."
+
+set              version           3.8
+set              root              /cm/shared/apps/rosetta/$version
+
+setenv		 ROSETTA3_DB	   $root/main/database
+prepend-path     PATH              $root/main/source/bin:$root/tools/fragment_tools/bin
+setenv		 ROSETTA3_BIN      $root/main/source/bin
+
+prepend-path      PATH              /cm/local/apps/gcc/5.2.0/bin
+prepend-path      LD_LIBRARY_PATH   /cm/local/apps/gcc/5.2.0/lib:/cm/local/apps/gcc/5.2.0/lib64
+
+prepend-path      PATH              /cm/shared/apps/python/2.7.11/bin
+prepend-path      MANPATH           /cm/shared/apps/python/2.7.11/share/man
+prepend-path      LD_LIBRARY_PATH   /cm/shared/apps/python/2.7.11/lib
+

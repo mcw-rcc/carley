@@ -1,0 +1,18 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds DOCK 3.7 to your environment variables,"
+}
+
+module-whatis "adds DOCK 3.7 to your environment variables."
+
+set              version           3.7
+set              root              /cm/shared/apps/dock/$version
+
+prepend-path     PATH              $root/bin
+setenv     	 DOCK              $root/docking/DOCK/bin/dock64
+setenv		 DOCKBASE	   $root
+

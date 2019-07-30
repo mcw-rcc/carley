@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds MetaPhlAn to your environment variables,"
+}
+
+module-whatis "adds MetaPhlAn to your environment variables."
+
+set              version           2.6.0
+set              root              /cm/shared/apps/metaphlan/$version
+
+prepend-path      PATH              $root
+setenv		  mpa_dir	    $root

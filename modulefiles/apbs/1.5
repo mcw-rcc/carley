@@ -1,0 +1,21 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds APBS to your environment variables,"
+}
+
+module-whatis "Adds APBS to your environment variables."
+
+set              version           1.5
+set              root              /cm/shared/apps/apbs/$version
+
+prepend-path      PATH              $root/bin
+prepend-path      LD_LIBRARY_PATH   $root/lib
+
+if ![ is-loaded 'gcc/5.2.0' ] {
+  module load gcc/5.2.0
+}
+

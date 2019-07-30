@@ -1,0 +1,17 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds BCFTools to your environment variables,"
+}
+
+module-whatis "adds BCFTools to your environment variables."
+
+set              version           1.8
+set              root              /cm/shared/apps/bcftools/$version
+
+prepend-path      PATH              $root/bin
+prepend-path      MANPATH           $root/share/man
+prepend-path      LD_LIBRARY_PATH   $root/libexec/bcftools

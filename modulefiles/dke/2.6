@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds [module-info name] to your environment variables,"
+}
+
+module-whatis "Adds [module-info name] to your environment variables."
+
+set              version           2.6
+set              root              /cm/shared/apps/dke/$version
+
+prepend-path      PATH              $root
+

@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds VarScan to your environment variables,"
+}
+
+module-whatis "adds VarScan to your environment variables."
+
+set              version           2.4.2
+set              root              /cm/shared/apps/varscan/$version
+
+prepend-path		 PATH		   $root/VarScan.v2.4.2.jar
+setenv		  VARSCAN	   $root/VarScan.v2.4.2.jar

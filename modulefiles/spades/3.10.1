@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds SPAdes to your environment variables,"
+}
+
+module-whatis "adds SPAdes to your environment variables."
+
+set              version           3.10.1
+set              root              /cm/shared/apps/spades/$version
+
+prepend-path     PATH              $root/bin
+

@@ -1,0 +1,15 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds OpenMM to your environment variables,"
+}
+
+module-whatis "adds OpenMM to your environment variables."
+
+set              version           7.1.1
+set              root              /cm/shared/apps/openmm/$version
+
+prepend-path     LD_LIBRARY_PATH   $root/lib

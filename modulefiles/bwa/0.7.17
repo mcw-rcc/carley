@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds BWA to your environment variables,"
+}
+
+module-whatis "adds BWA to your environment variables."
+
+set              version           0.7.17
+set              root              /cm/shared/apps/bwa/$version
+
+prepend-path      PATH              $root
+

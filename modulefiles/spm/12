@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds SPM to your environment variables,"
+}
+
+module-whatis "adds SPM to your environment variables."
+
+set              version           12
+set              root              /cm/shared/apps/spm/$version
+
+prepend-path     PATH              $root
+

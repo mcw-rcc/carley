@@ -1,0 +1,18 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds Centrifuge to your environment variables,"
+}
+
+module-whatis "adds Centrifuge to your environment variables."
+
+set             version             1.0.3
+set             root                /cm/shared/apps/centrifuge/$version
+                                    
+prepend-path    PATH                $root/bin
+prepend-path    MANPATH             $root/share/man
+setenv          CENTRIFUGE_INDEXES  /rcc/stor1/refdata/centrifuge      
+

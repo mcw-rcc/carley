@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds dropEst to your environment variables,"
+}
+
+module-whatis "adds dropEst to your environment variables."
+
+set              version           0.8.3
+set              root              /cm/shared/apps/dropest/$version
+
+prepend-path      PATH              $root
+

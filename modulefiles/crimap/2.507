@@ -1,0 +1,15 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds CRI-MAP to your environment variables,"
+}
+
+module-whatis "adds CRI-MAP to your environment variables."
+
+set              version           2.507
+set              root              /cm/shared/apps/crimap/$version
+
+prepend-path      PATH              $root/bin

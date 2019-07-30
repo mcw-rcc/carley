@@ -1,0 +1,20 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds RStudio to your environment variables,"
+}
+
+module-whatis "adds RStudio to your environment variables."
+
+set              version           0.98.1103
+set              root              /cm/shared/apps/RStudio/$version
+
+prepend-path      PATH              $root/bin
+
+if ![ is-loaded 'R/3.5.0' ] {
+  module load R/3.5.0
+}
+

@@ -1,0 +1,20 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds Cufflinks to your environment variables,"
+}
+
+module-whatis "adds Cufflinks to your environment variables."
+
+set              version           2.2.1
+set              root              /cm/shared/apps/cufflinks/$version
+
+prepend-path      PATH              $root
+
+set-alias	 cufflinks	   "cufflinks --no-update-check"
+set-alias	 cuffdiff	   "cuffdiff --no-update-check"
+set-alias	 cuffquant	   "cuffquant --no-update-check"
+set-alias	 cuffnorm	   "cuffnorm --no-update-check"

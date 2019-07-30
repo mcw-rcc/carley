@@ -1,0 +1,15 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds FIX to your environment variables,"
+}
+
+module-whatis "adds FIX to your environment variables."
+
+set              version           1.06
+set              root              /cm/shared/apps/fix/$version
+
+prepend-path      PATH              $root

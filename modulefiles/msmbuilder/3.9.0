@@ -1,0 +1,17 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds MSMBuilder to your environment variables,"
+}
+
+module-whatis "adds MSMBuilder to your environment variables."
+
+set              version           3.9.0
+set              root              /cm/shared/apps/msmbuilder/$version
+
+prepend-path	 PATH		   $root/bin
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     PYTHONPATH        $root/lib/python3.6/site-packages

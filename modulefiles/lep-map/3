@@ -1,0 +1,17 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds lep-map to your environment variables,"
+}
+
+module-whatis "adds lep-map to your environment variables."
+
+set              version           3
+set              root              /cm/shared/apps/lep-map/$version
+
+prepend-path      PATH              $root/bin:$root/src
+setenv		 LEP_MAP_BIN	   $root/bin
+

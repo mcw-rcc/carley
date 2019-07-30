@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds SRA Toolkit to your environment variables,"
+}
+
+module-whatis "adds SRA Toolkit to your environment variables."
+
+set              version           2.7.0
+set              root              /cm/shared/apps/sratoolkit/$version
+
+prepend-path      PATH              $root/bin
+

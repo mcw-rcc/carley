@@ -1,0 +1,15 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds Bowtie2 to your environment variables,"
+}
+
+module-whatis "adds Bowtie2 to your environment variables."
+
+set              version           2.2.3
+set              root              /cm/shared/apps/bowtie/$version
+
+prepend-path      PATH              $root

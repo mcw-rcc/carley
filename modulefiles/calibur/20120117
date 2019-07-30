@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds calibur to your environment variables,"
+}
+
+module-whatis "adds calibur to your environment variables."
+
+set              version           20120117
+set              root              /cm/shared/apps/calibur/$version
+
+prepend-path      PATH              $root
+

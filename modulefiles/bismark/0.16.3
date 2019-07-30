@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds Bismark to your environment variables,"
+}
+
+module-whatis "adds Bismark to your environment variables."
+
+set              version           0.16.3
+set              root              /cm/shared/apps/bismark/$version
+
+prepend-path      PATH              $root
+

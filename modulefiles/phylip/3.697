@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds [module-info name] to your environment variables,"
+}
+
+module-whatis "adds [module-info name] to your environment variables."
+
+set              version           3.697
+set              root              /cm/shared/apps/phylip/$version
+
+prepend-path      PATH              $root
+

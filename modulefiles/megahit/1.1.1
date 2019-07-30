@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds MEGAHIT to your environment variables,"
+}
+
+module-whatis "adds MEGAHIT to your environment variables."
+
+set              version           1.1.1
+set              root              /cm/shared/apps/megahit/$version
+
+prepend-path      PATH              $root/bin
+

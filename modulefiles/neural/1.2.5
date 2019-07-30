@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds NeurAL to your environment variables,"
+}
+
+module-whatis "adds NeurAL to your environment variables."
+
+set              version           1.2.5
+set              root              /cm/shared/apps/neural/$version
+
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     PYTHONPATH        $root/lib/python2.7/site-packages

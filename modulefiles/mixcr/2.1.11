@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds MiXCR to your environment variables,"
+}
+
+module-whatis "Adds MiXCR to your environment variables."
+
+set              version           2.1.11
+set              root              /cm/shared/apps/mixcr/$version
+
+prepend-path     PATH              $root
+

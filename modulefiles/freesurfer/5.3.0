@@ -1,0 +1,30 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds FreeSurfer to your environment variables,"
+}
+
+module-whatis "adds FreeSurfer to your environment variables."
+
+set              version           5.3.0
+set              root              /cm/shared/apps/freesurfer/$version
+
+setenv           FREESURFER_HOME   $root
+setenv 		 FMRI_ANALYSIS_DIR $root/fsfast
+setenv 		 FSFAST_HOME	   $root/fsfast
+setenv		 FSF_OUTPUT_FORMAT nii.gz
+setenv		 FS_OVERRIDE	   0
+setenv		 FUNCTIONALS_DIR   $root/sessions
+setenv		 LOCAL_DIR	   $root/local
+setenv		 MINC_BIN_DIR	   $root/mni/bin
+setenv		 MINC_LIB_DIR	   $root/mni/lib
+setenv		 MNI_DATAPATH	   $root/mni/data
+setenv		 MNI_DIR	   $root/mni
+setenv		 MNI_PERL5LIB	   $root/mni/lib/perl5/5.8.5
+setenv		 OS		   Linux
+setenv		 PERL5LIB	   $root/mni/lib/perl5/5.8.5
+setenv 		 SUBJECTS_DIR	   $root/subjects
+prepend-path     PATH              $root/bin:$root/fsfast/bin:$root/tktools:$root/mni/bin

@@ -1,0 +1,17 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds PEAR to your environment variables,"
+}
+
+module-whatis "adds PEAR to your environment variables."
+
+set              version           0.9.10
+set              root              /cm/shared/apps/pear/$version
+
+prepend-path      PATH              $root/bin
+prepend-path      MANPATH           $root/share/man
+

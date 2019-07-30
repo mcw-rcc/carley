@@ -1,0 +1,18 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds [module-info name] to your environment variables,"
+}
+
+module-whatis "Adds MCR v717 (2012a) to your environment variables."
+
+set              version           v717
+set              root              /cm/shared/apps/mcr/$version
+
+prepend-path      PATH              $root/bin
+prepend-path      LD_LIBRARY_PATH   $root/runtime/glnxa64:$root/bin/glnxa64:$root/sys/os/glnxa64:$root/sys/java/jre/glnxa64/jre/lib/amd64/native_threads:$root/sys/java/jre/glnxa64/jre/lib/amd64/server:$root/sys/java/jre/glnxa64/jre/lib/amd64
+setenv		  XAPPLRESDIR	    $root/X11/app-defaults
+

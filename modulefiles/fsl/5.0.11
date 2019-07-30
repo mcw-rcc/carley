@@ -1,0 +1,17 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds FSL to your environment variables,"
+}
+
+module-whatis "adds FSL to your environment variables."
+
+set              version           5.0.11
+set              root              /cm/shared/apps/fsl/$version
+
+prepend-path      PATH              $root/bin
+prepend-path      LD_LIBRARY_PATH   $root/lib
+setenv		  FSLDIR	    $root

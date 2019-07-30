@@ -1,0 +1,17 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds MinPath to your environment variables,"
+}
+
+module-whatis "adds MinPath to your environment variables."
+
+set              version           1.2
+set              root              /cm/shared/apps/minpath/$version
+
+setenv		 MinPath	   $root
+prepend-path	 PATH		   $root
+

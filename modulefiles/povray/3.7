@@ -1,0 +1,15 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds POVray to your environment variables,"
+}
+
+module-whatis "adds POVray to your environment variables."
+
+set              version           3.7
+set              root              /cm/shared/apps/povray/$version
+
+prepend-path      PATH              $root/bin

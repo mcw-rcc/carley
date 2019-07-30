@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds Hisat2 to your environment variables,"
+}
+
+module-whatis "adds Hisat2 to your environment variables."
+
+set              version           2.0.5
+set              root              /cm/shared/apps/hisat2/$version
+setenv		 HISAT2_INDEXES    /rcc/stor1/refdata/hisat2
+prepend-path      PATH              $root
+

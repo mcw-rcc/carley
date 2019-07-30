@@ -1,0 +1,20 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds Cromwell to your environment variables,"
+}
+
+module-whatis "Adds Cromwell to your environment variables."
+
+set              version           32
+set              root              /cm/shared/apps/cromwell/$version
+
+prepend-path     PATH              $root
+setenv		 CROMWELL 	   $root/cromwell-32.jar
+setenv		 WOMTOOL 	   $root/womtool-32.jar
+
+set-alias        cromwell	   "java -jar /cm/shared/apps/cromwell/32/cromwell-32.jar \$*"
+

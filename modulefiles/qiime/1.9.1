@@ -1,0 +1,18 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds Qiime to your environment variables,"
+}
+
+module-whatis "adds Qiime to your environment variables."
+
+set              version           1.9.1
+set              root              /cm/shared/apps/qiime/$version
+
+prepend-path      PATH              $root/bin
+prepend-path      LD_LIBRARY_PATH   $root/lib
+prepend-path	  PYTHONPATH	    $root/lib/python2.7/site-packages
+setenv		  QIIME_CONFIG_FP   $root/qiime_config

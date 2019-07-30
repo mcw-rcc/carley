@@ -1,0 +1,18 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds VCFtools to your environment variables,"
+}
+
+module-whatis "adds VCFtools to your environment variables."
+
+set              version           0.1.15
+set              root              /cm/shared/apps/vcftools/$version
+
+setenv		 PERL5LIB	   $root/src/perl
+prepend-path     PATH              $root/bin
+prepend-path     MANPATH           $root/share/man
+

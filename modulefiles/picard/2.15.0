@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds Picard to your environment variables,"
+}
+
+module-whatis "adds Picard to your environment variables."
+
+set              version           2.15.0
+set              root              /cm/shared/apps/picard/$version
+
+prepend-path		 PATH		   $root/picard.jar
+setenv		  PICARD	   $root/picard.jar

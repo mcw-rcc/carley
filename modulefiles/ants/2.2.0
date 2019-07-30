@@ -1,0 +1,17 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds ANTs to your environment variables,"
+}
+
+module-whatis "adds ANTs to your environment variables."
+
+set              version           2.2.0
+set              root              /cm/shared/apps/ants/$version
+
+prepend-path	 PATH		   $root/bin
+setenv           ANTSPATH 	   $root/bin
+

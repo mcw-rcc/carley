@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds PLINK to your environment variables,"
+}
+
+module-whatis "adds PLINK to your environment variables."
+
+set              version           1.90b5.2
+set              root              /cm/shared/apps/plink/$version
+
+prepend-path     PATH              $root/bin
+

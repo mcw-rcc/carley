@@ -1,0 +1,18 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds Perl to your environment variables,"
+}
+
+module-whatis "Adds Perl to your environment variables."
+
+set              version           5.26.1
+set              root              /cm/shared/apps/perl/$version
+
+prepend-path      PATH              $root/bin
+prepend-path      MANPATH           $root/man
+prepend-path      LD_LIBRARY_PATH   $root/lib
+

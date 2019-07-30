@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds bam-readcount to your environment variables,"
+}
+
+module-whatis "adds bam-readcount to your environment variables."
+
+set              version           0.8.0
+set              root              /cm/shared/apps/bam-readcount/$version
+
+prepend-path     PATH              $root/bin
+

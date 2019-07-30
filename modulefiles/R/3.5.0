@@ -1,0 +1,35 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds R 3.5.0 to your environment variables,"
+}
+
+module-whatis "Adds R 3.5.0 to your environment variables."
+
+set              version           3.5.0
+set              root              /cm/shared/apps/R/$version
+
+prepend-path      PATH              $root/bin
+prepend-path      MANPATH           $root/share/man
+prepend-path      LD_LIBRARY_PATH   $root/lib
+prepend-path      LD_LIBRARY_PATH   $root/lib64
+setenv		  R_LIBS	    $root/lib64/R/library:/rcc/stor1/refdata/R/library
+
+if ![ is-loaded 'gcc/5.2.0' ] {
+  module load gcc/5.2.0
+}
+
+if ![ is-loaded 'pandoc/2.2' ] {
+  module load pandoc/2.2
+}
+
+if ![ is-loaded 'lapack/gcc/64/3.8.0' ] {
+  module load lapack/gcc/64/3.8.0
+}
+
+if ![ is-loaded 'blas/gcc/64/3.8.0] {
+  module load blas/gcc/64/3.8.0}
+

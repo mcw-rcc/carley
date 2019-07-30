@@ -1,0 +1,17 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds Modeller to your environment variables,"
+}
+
+module-whatis "adds Modeller to your environment variables."
+
+set              version           9.19
+set              root              /cm/shared/apps/modeller/$version
+
+prepend-path	 PATH		   $root/bin
+prepend-path     LD_LIBRARY_PATH   $root/lib/x86_64-intel8
+prepend-path     PYTHONPATH        $root/lib/x86_64-intel8/python3.3:$root/modlib

@@ -1,0 +1,21 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds kaiju to your environment variables,"
+}
+
+module-whatis "adds kaiju to your environment variables."
+
+set              version           1.6.2
+set              root              /cm/shared/apps/kaiju/$version
+
+prepend-path     PATH              $root/bin
+setenv		 KAIJU_DB	   /rcc/stor1/refdata/kaiju
+
+if ![ is-loaded 'gcc/5.2.0' ] {
+  module load gcc/5.2.0
+}
+

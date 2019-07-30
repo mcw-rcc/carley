@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds HOMER to your environment variables,"
+}
+
+module-whatis "Adds HOMER to your environment variables."
+
+set              version           4.9.1
+set              root              /cm/shared/apps/homer/$version
+
+prepend-path      PATH              $root/bin
+

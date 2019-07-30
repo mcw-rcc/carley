@@ -1,0 +1,15 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds GATK to your environment variables,"
+}
+
+module-whatis "adds GATK to your environment variables."
+
+set              version           4.0.4.0
+set              root              /cm/shared/apps/gatk/$version
+
+prepend-path		 PATH		   $root

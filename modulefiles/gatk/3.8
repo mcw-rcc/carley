@@ -1,0 +1,17 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds GATK to your environment variables,"
+}
+
+module-whatis "adds GATK to your environment variables."
+
+set              version           3.8
+set              root              /cm/shared/apps/gatk/$version
+
+prepend-path		 PATH		   $root
+setenv		  GATK	   $root/GenomeAnalysisTK.jar
+setenv		  GATK_QUEUE	   $root/Queue.jar

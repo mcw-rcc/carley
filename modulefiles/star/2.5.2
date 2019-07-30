@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds STAR to your environment variables,"
+}
+
+module-whatis "adds STAR to your environment variables."
+
+set              version           2.5.2
+set              root              /cm/shared/apps/star/$version
+
+prepend-path      PATH              $root/bin/Linux_x86_64
+

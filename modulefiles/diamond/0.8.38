@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds DIAMOND to your environment variables,"
+}
+
+module-whatis "adds DIAMOND to your environment variables."
+
+set              version           0.8.38
+set              root              /cm/shared/apps/diamond/$version
+
+prepend-path	 PATH		   $root
+

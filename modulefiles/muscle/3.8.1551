@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds [module-info name] to your environment variables,"
+}
+
+module-whatis "adds [module-info name] to your environment variables."
+
+set              version           3.8.1551
+set              root              /cm/shared/apps/muscle/$version
+
+prepend-path      PATH              $root
+

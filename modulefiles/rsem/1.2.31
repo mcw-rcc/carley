@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds RSEM to your environment variables,"
+}
+
+module-whatis "adds RSEM to your environment variables."
+
+set              version           1.2.31
+set              root              /cm/shared/apps/rsem/$version
+
+prepend-path      PATH              $root/bin
+

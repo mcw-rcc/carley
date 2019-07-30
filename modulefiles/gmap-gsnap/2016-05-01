@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds GMAP-GSNAP to your environment variables,"
+}
+
+module-whatis "adds GMAP-GSNAP to your environment variables."
+
+set              version           2016-05-01
+set              root              /cm/shared/apps/gmap-gsnap/$version
+
+prepend-path      PATH              $root/bin
+

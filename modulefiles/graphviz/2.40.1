@@ -1,0 +1,18 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds Graphviz to your environment variables,"
+}
+
+module-whatis "adds Graphviz to your environment variables."
+
+set              version           2.40.1
+set              root              /cm/shared/apps/graphviz/$version
+
+prepend-path     PATH              $root/bin
+prepend-path	 LD_LIBRARY_PATH   $root/lib
+prepend-path	 MANPATH	   $root/share/man
+

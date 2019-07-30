@@ -1,0 +1,19 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds bcl2fastq2 to your environment variables,"
+}
+
+module-whatis "adds bcl2fastq2 to your environment variables."
+
+set              version            2.20
+set              root               /cm/shared/apps/bcl2fastq2/$version
+
+prepend-path      PATH              $root/bin
+
+if ![ is-loaded 'gcc/4.9.4' ] {
+  module load gcc/4.9.4
+}
