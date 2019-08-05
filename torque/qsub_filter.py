@@ -76,9 +76,9 @@ errors = []
 warnings = []
 
 # grab lines from stdin
-lines = sys.stdin.readlines()
-line1 = lines[0]
-lineN = lines[1:]
+linesIn = sys.stdin.readlines()
+line1 = linesIn[0]
+lineN = linesIn[1:]
 
 if len(sys.argv) == 2:
     shebang = "yes"
@@ -226,7 +226,7 @@ else:
     line = ' '.join(sys.argv[1:])
     # enter if form is not qsub options
     if not line:
-        for line in lines:
+        for line in linesIn:
             line.strip()
             m = re.search('(?<=#PBS -N )(\w+)', line)
             if (m):
@@ -504,7 +504,7 @@ else:
 ##### MAIN END #####
 
 # pass the input through
-for line in lines:
+for line in linesIn:
     sys.stdout.write(line)
 
 # check for duplicate errors or warnings
@@ -543,8 +543,7 @@ if errors or warnings:
         m.write('\n----------------------------------------------------------------------------------\n')
     sys.stderr.write('\nFor more information please see http://wiki.rcc.mcw.edu/Torque_Submission_Scripts\nand http://wiki.rcc.mcw.edu/Carley_MPI_Cluster.\n----------------------------------------------------------------------------------\n')
     m.write('Torque job script:\n')
-    m.write(line1)
-    for line in lines:
+    for line in linesIn:
         m.write(line)
     m.write('\n----------------------------------------------------------------------------------\n')
     m.close()
