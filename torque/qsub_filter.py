@@ -13,17 +13,21 @@ import sys, re, os, pwd
 stdnodes = 1
 computenodes = 3
 largenodes = 8
+medmemnodes = 1
 bigmemnodes = 1
 devnodes = 1
 
 # cores per node type
 stdcores = 24
+medmemcores = 48
 bigmemcores = 40
 devcores = 1
 
 # max memory for queues in gb
 stdmem = 120
 stdMemPerCore = 5
+medmem = 380
+medMemPerCore = 8
 bigmem = 3000
 bigMemPerCore = 75
 devmem = 5
@@ -33,7 +37,8 @@ interMem = 16
 sharedwtime = 168
 computewtime = 120
 largewtime = 48
-bigmemwtime = 48
+medmemwtime = 168
+bigmemwtime = 168
 devwtime = 1
 interwtime = 8
 
@@ -397,30 +402,60 @@ else:
             if wtime > bigmemwtime:
                 msg = 'Walltime request must be less than %shrs for bigmem queue.' % (bigmemwtime)
                 errors.append(msg)
+    elif queue == "medmem":
+        if nodes == 'missing':
+            pass
+        else:
+            nodes = int(nodes)
+            if nodes > medmemnodes:
+                msg = 'Nodes request must be equal to %s for medmem queue.' % (medmemnodes)
+                errors.append(msg)
+        if ppn == 'missing':
+            pass
+        else:
+            if ppn > medmemcores:
+                msg = 'PPN request must be less than or equal to %s for medmem queue.' % (medmemcores)
+                errors.append(msg)
+        if mem == 'missing':
+            pass
+        else:
+            memPerCore = memval/ppn
+            if memPerCore <= stdMemPerCore:
+                msg = 'Memory request should be greater than %sgb per core for medmem queue.' % (stdMemPerCore)
+                warnings.append(msg)
+            if memval > medmem:
+                msg = 'Memory request must be less than or equal to %sgb for medmem queue.' % (medmem)
+                errors.append(msg)
+        if walltime == 'missing':
+            pass
+        else:
+            if wtime > medmemwtime:
+                msg = 'Walltime request must be less than %shrs for medmem queue.' % (medmemwtime)
+                errors.append(msg)
     elif queue == "dev":
         if nodes == 'missing':
             pass
         else:
             if nodes > devnodes:
-                msg = 'Nodes request must be equal to %s for dev queue.' % (bigmemnodes)
+                msg = 'Nodes request must be equal to %s for dev queue.' % (devnodes)
                 errors.append(msg)
         if ppn == 'missing':
             pass
         else:
             if ppn > devcores:
-                msg = 'PPN request must be equal to %s for dev queue.' % (bigmemcores)
+                msg = 'PPN request must be equal to %s for dev queue.' % (devcores)
                 errors.append(msg)
         if mem == 'missing':
             pass
         else:
             if memval > devmem:
-                msg = 'Memory request must be less than or equal to %sgb for dev queue.' % (bigmem)
+                msg = 'Memory request must be less than or equal to %sgb for dev queue.' % (devmem)
                 errors.append(msg)
         if walltime == 'missing':
             pass
         else:
             if wtime > devwtime:
-                msg = 'Walltime request must be less than or equal to %shrs for dev queue.' % (bigmemwtime)
+                msg = 'Walltime request must be less than or equal to %shrs for dev queue.' % (devwtime)
                 errors.append(msg)
     # no queue 
     else:
@@ -447,7 +482,7 @@ else:
             cores = nodes*ppn
             memPerCore = memval/cores
             if memPerCore > stdMemPerCore:
-                msg = 'Consider using bigmem queue for jobs needing greater than %sgb of memory per core.' % (stdMemPerCore)
+                msg = 'Consider using medmem or bigmem queue for jobs needing greater than %sgb of memory per core.' % (stdMemPerCore)
                 warnings.append(msg)
         if nodes == 'missing' or walltime == 'missing':
             pass
