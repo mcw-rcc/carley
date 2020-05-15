@@ -114,7 +114,12 @@ if len(sys.argv) == 2:
                 account = m.group(0)
             m = re.search('#PBS\s*\-l\s*\S*nodes\=(\w+)', line)
             if (m):
-                nodes = m.group(1)
+                # use if integer
+                if isinstance(m, (int, long)):
+                    nodes = m.group(1)
+                else:
+                    # if node name set to 1
+                    nodes = 1
             m = re.search('#PBS\s*\-l\s*\S*ppn\=(\d+)', line)
             if (m):
                 ppn = m.group(1)
@@ -143,7 +148,12 @@ else:
             account = m.group(1)
         m = re.search('\-l\s*\S*nodes\=(\w+)', line)
         if (m):
-            nodes = m.group(1)
+            # use if integer
+            if isinstance(m, (int, long)):
+                nodes = m.group(1)
+            else:
+                # if node name set to 1
+                nodes = 1
         m = re.search('\-l\s*\S*ppn\=(\d+)', line)
         if (m):
             ppn = m.group(1)
@@ -187,7 +197,12 @@ else:
             except:
                 m = re.search('#PBS\s*\-l\s*\S*nodes\=(\w+)', line)
                 if (m):
-                    nodes = m.group(1)
+                    # use if integer
+                    if isinstance(m, (int, long)):
+                        nodes = m.group(1)
+                    else:
+                        # if node name set to 1
+                        nodes = 1
             try:
                 ppn
             except:
@@ -392,7 +407,12 @@ else:
     if nodes == 'missing':
         pass
     else:
-        maxmem = nodes*stdmem
+        # fails if nodes is string
+        #maxmem = nodes*stdmem
+        if isinstance(nodes, (int, long)):
+            maxmem = nodes*stdmem
+        else:
+            print nodes
         if nodes > largenodes:
             msg = 'Max nodes request must be less than or equal to %s for standard compute nodes.' % (largenodes)
             errors.append(msg)
