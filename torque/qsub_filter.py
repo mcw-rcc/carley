@@ -118,7 +118,7 @@ if len(sys.argv) == 2:
                 if isinstance(m, (int, long)):
                     nodes = m.group(1)
                 else:
-                    # if node name set to 1
+                    # if hostname given then set to 1
                     nodes = 1
             m = re.search('#PBS\s*\-l\s*\S*ppn\=(\d+)', line)
             if (m):
@@ -152,7 +152,7 @@ else:
             if isinstance(m, (int, long)):
                 nodes = m.group(1)
             else:
-                # if node name set to 1
+                # if hostname given then set to 1
                 nodes = 1
         m = re.search('\-l\s*\S*ppn\=(\d+)', line)
         if (m):
@@ -201,7 +201,7 @@ else:
                     if isinstance(m, (int, long)):
                         nodes = m.group(1)
                     else:
-                        # if node name set to 1
+                        # if hostname given then set to 1
                         nodes = 1
             try:
                 ppn
@@ -407,12 +407,7 @@ else:
     if nodes == 'missing':
         pass
     else:
-        # fails if nodes is string
-        #maxmem = nodes*stdmem
-        if isinstance(nodes, (int, long)):
-            maxmem = nodes*stdmem
-        else:
-            print nodes
+        maxmem = nodes*stdmem
         if nodes > largenodes:
             msg = 'Max nodes request must be less than or equal to %s for standard compute nodes.' % (largenodes)
             errors.append(msg)
@@ -422,13 +417,15 @@ else:
         if ppn > stdcores:
             msg = 'PPN request must be less than or equal to %s for standard compute nodes.' % (stdcores)
             errors.append(msg)
+            if ppn == medmemcores:
+                msg = 'Consider using medmem queue for jobs needing %s cores.' % (medmemcores)
+                warnings.append(msg)
     if mem == 'missing':
         pass
     else:
         if memval > maxmem:
             msg = 'Memory request must be less than %sgb per standard compute node.' % (stdmem)
             errors.append(msg)
-        # calculate 
         cores = nodes*ppn
         memPerCore = memval/cores
         if memPerCore > stdMemPerCore:
@@ -466,31 +463,31 @@ else:
                 msg = 'Max walltime request for interactive job is %shrs.' % (interwtime)
                 errors.append(msg)
 
-#accounts = get_accounts_rest(username)
-accounts = get_accounts_cli(username)
-if account == 'missing':
-    if accounts:
-        msg = 'PBS account string is required. No account string provided.\nAdd a valid account string. Example #PBS -A myaccount.\nAvailable accounts:'
-        for name, desc in accounts.items():
-            acctType = desc.split(' ')[-1]
-            #msg = msg + '\n' + name + ': "' + desc +'"'
-            msg = msg + '\n' + 'Account: ' + name + '\nDescription: ' + desc + '\nType: ' + acctType + '\nLimit: None\n'
-        errors.append(msg)
-    else:
-        msg = 'PBS account string is required. No valid account string for your user. Contact rcc_admin@mcw.edu'
-        errors.append(msg)
-else:
-    if account not in accounts.keys():
-        msg = 'PBS account string is required. Requested account string is not valid.\nAdd a valid account string. Example: #PBS -A myaccount.\nAvailable accounts:'
-        for name, desc in accounts.items():
-            acctType = desc.split(' ')[-1]
-            #msg = msg + '\n' + name + ': "' + desc +'"'
-            msg = msg + '\n' + 'Account: ' + name + '\nDescription: ' + desc + '\nType: ' + acctType + '\nLimit: None\n'
-        errors.append(msg)
-        errors.append(msg)
-    elif not accounts:
-        msg = 'PBS account string is required. No valid account string for your user. Contact rcc_admin@mcw.edu'
-        errors.append(msg)
+##accounts = get_accounts_rest(username)
+#accounts = get_accounts_cli(username)
+#if account == 'missing':
+#    if accounts:
+#        msg = 'PBS account string is required. No account string provided.\nAdd a valid account string. Example #PBS -A myaccount.\nAvailable accounts:'
+#        for name, desc in accounts.items():
+#            acctType = desc.split(' ')[-1]
+#            #msg = msg + '\n' + name + ': "' + desc +'"'
+#            msg = msg + '\n' + 'Account: ' + name + '\nDescription: ' + desc + '\nType: ' + acctType + '\nLimit: None\n'
+#        errors.append(msg)
+#    else:
+#        msg = 'PBS account string is required. No valid account string for your user. Contact rcc_admin@mcw.edu'
+#        errors.append(msg)
+#else:
+#    if account not in accounts.keys():
+#        msg = 'PBS account string is required. Requested account string is not valid.\nAdd a valid account string. Example: #PBS -A myaccount.\nAvailable accounts:'
+#        for name, desc in accounts.items():
+#            acctType = desc.split(' ')[-1]
+#            #msg = msg + '\n' + name + ': "' + desc +'"'
+#            msg = msg + '\n' + 'Account: ' + name + '\nDescription: ' + desc + '\nType: ' + acctType + '\nLimit: None\n'
+#        errors.append(msg)
+#        errors.append(msg)
+#    elif not accounts:
+#        msg = 'PBS account string is required. No valid account string for your user. Contact rcc_admin@mcw.edu'
+#        errors.append(msg)
 
 # check for matlab licensing if matlab is going to run
 groups = getgroups(username)
