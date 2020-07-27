@@ -114,11 +114,11 @@ if len(sys.argv) == 2:
                 account = m.group(0)
             m = re.search('#PBS\s*\-l\s*\S*nodes\=(\w+)', line)
             if (m):
-                # use if integer
-                if isinstance(m, (int, long)):
-                    nodes = m.group(1)
-                else:
-                    # if hostname given then set to 1
+                nodes = m.group(1)
+                try:
+                    int(nodes)
+                    nodes = int(nodes)
+                except:
                     nodes = 1
             m = re.search('#PBS\s*\-l\s*\S*ppn\=(\d+)', line)
             if (m):
@@ -148,11 +148,11 @@ else:
             account = m.group(1)
         m = re.search('\-l\s*\S*nodes\=(\w+)', line)
         if (m):
-            # use if integer
-            if isinstance(m, (int, long)):
-                nodes = m.group(1)
-            else:
-                # if hostname given then set to 1
+            nodes = m.group(1)
+            try:
+                int(nodes)
+                nodes = int(nodes)
+            except:
                 nodes = 1
         m = re.search('\-l\s*\S*ppn\=(\d+)', line)
         if (m):
@@ -197,11 +197,11 @@ else:
             except:
                 m = re.search('#PBS\s*\-l\s*\S*nodes\=(\w+)', line)
                 if (m):
-                    # use if integer
-                    if isinstance(m, (int, long)):
-                        nodes = m.group(1)
-                    else:
-                        # if hostname given then set to 1
+                    nodes = m.group(1)
+                    try:
+                        int(nodes)
+                        nodes = int(nodes)
+                    except:
                         nodes = 1
             try:
                 ppn
@@ -423,6 +423,7 @@ else:
     if mem == 'missing':
         pass
     else:
+        maxmem = nodes*stdmem
         if memval > maxmem:
             msg = 'Memory request must be less than %sgb per standard compute node.' % (stdmem)
             errors.append(msg)
@@ -573,3 +574,4 @@ if errors or warnings:
     m.close()
     if errors:
         sys.exit(-1)
+
